@@ -1,0 +1,85 @@
+
+
+
+  <!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>BabylonJS Viewer - Basic usage</title>
+        <style>
+            /* babylon {
+                width: 800px;
+                height: 500px;
+            } */
+        </style>
+        <script>
+            function getQueryString(name) {
+                var query_string = window.location.search
+            if (!query_string) return null; // 如果无参，返回null
+            var re = /[?&]?([^=]+)=([^&]*)/g;
+            var tokens;
+            while (tokens = re.exec(query_string)) {
+                if (decodeURIComponent(tokens[1]) === name) {
+                return decodeURIComponent(tokens[2]);
+                }
+            }
+            return null;
+            }
+            
+    </script>
+    </head>
+
+    <body>
+        <babylon id="babylonid" extends="default" templates.nav-bar.params.hide-logo="true" templates.nav-bar.params.hide-vr="true" model="./exhaust_filter_housing.stl">
+
+        </babylon>
+
+        <!-- <babylon id="babylonid" extends="default shadowDirectionalLight" templates.nav-bar.params.hide-logo="true" templates.nav-bar.params.hide-vr="true" model="./exhaust_filter_housing.stl">
+
+        </babylon> -->
+
+        <!-- <babylon extends="minimal" model.url="./exhaust_filter_housing.stl" ></babylon> -->
+
+
+        <!-- <babylon id="babylon-viewer" model="./exhaust_filter_housing.stl">
+            <vr object-scale-factor="2">
+            </vr>
+            <templates>
+                <nav-bar>
+                    <params hide-vr="true"></params>
+                </nav-bar>
+            </templates>
+        </babylon> -->
+
+        <!-- <babylon extends="default, shadowDirectionalLight, environmentMap" templates.nav-bar.params.hide-logo="true" templates.main.params.fill-screen="true">
+            <scene glow="true">
+            </scene>
+            <lab>
+                <environment-main-color r="0.5" g="0.2" b="0.2"></environment-main-color>
+                <flashlight>
+                    <specular r="1" g="0" b="0"></specular>
+                    <diffuse r="0" g="1" b="0"></diffuse>
+                </flashlight>
+            </lab>
+            <model url="./exhaust_filter_housing.stl">
+                <animation auto-start="true"></animation>
+            </model>
+            <camera beta="0.8"></camera>
+        </babylon> -->
+
+
+        <script src="https://preview.babylonjs.com/viewer/babylon.viewer.js"></script>
+        <script>
+            
+            var element=document.getElementById("babylonid");
+            console.log(element) ;
+            element.setAttribute("model",getQueryString('model')) ;
+        </script>
+    </body>
+
+</html>
+
+
